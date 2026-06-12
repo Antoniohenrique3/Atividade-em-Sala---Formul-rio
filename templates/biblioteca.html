@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    <title>Biblioteca do {{ meunome }}</title>
+{% endblock %}
+{% block conteudo %}
+    <h1>Minha Biblioteca</h1>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+            {% for livro in meuhtml[0].keys() %}
+              {% if livro == 'isbn' %} 
+               <th>{{livro | upper}}</th>
+               {% else %}
+                <th>{{livro | capitalize | replace('_', ' ') }}</th>
+               {% endif %}
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for livro in meuhtml %}
+            <tr>
+                <td>{{livro.isbn}}</td>
+                <td>{{livro['titulo']}}</td>
+                <td>{{livro.autor}}</td>
+                <td>{{livro['genero']}}</td>
+                <td>{{livro.ano_publicacao}}</td>
+                <td>{{livro.editora}}</td>
+                <td>{{livro.paginas}}</td>
+                <td>{{livro['status']}}</td>
+                <td>{{livro['localizacao']}}</td>
+                <td>
+                    <form action="/biblioteca" method="POST" name='acao' value='{{ livro.isbn }}' onsubmit="return confirm('Confirmar Exclusão?');" style="display:inline;">
+                        <input type="hidden" name="acao" value="deletar">
+                        <input type="hidden" name="isbn" value="{{ livro.isbn }}">
+                        <button type="submit" class="btn-deletar">EXCLUIR</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
