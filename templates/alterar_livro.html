@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    <h1>Alterar Livro</h1>
+{% endblock %}
+
+{% block conteudo %}
+
+<h2>Alterar Livro</h2>
+<form action="/biblioteca/alterar" method="POST">
+    <input type="hidden" name="isbn" value = "{{ livro.isbn }}"><br>
+    <label>Título:<input type="text" name="titulo" value = "{{ livro.titulo }}"></label><br>
+    <label>Autor: <input type="text" name="autor" value = "{{ livro.autor }}"></label><br>
+    <label>Gênero:<input type="text" name="genero" value = "{{ livro.genero}}"></label><br>
+    <label>Ano Publicação:<input type="text" name="ano_publicacao" value = "{{ livro.ano_publicacao }}"></label><br>
+    <label>Editora:<input type="text" name="editora" value = "{{ livro.editora }}"></label><br>
+    <label>Páginas:<input type="text" name="paginas" value = "{{ livro.paginas }}"></label><br>
+    <label>Status:<input type="text" name="status" value = "{{ livro.status }}"></label><br>
+    <label>Localização:<input type="text" name="localizacao" value = "{{ livro.localizacao }}"></label>
+    
+    <button type="submit">Salvar Alteração</button>
+</form>
+
+{% endblock %}

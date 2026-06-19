@@ -1,13 +1,13 @@
 [
     {
         "isbn": "978-8535914849",
-        "titulo": "1984",
+        "titulo": "2000",
         "autor": "George Orwell",
         "genero": "Distopia",
-        "ano_publicacao": 1949,
+        "ano_publicacao": "1949",
         "editora": "Companhia das Letras",
-        "paginas": 416,
-        "status": "disponivel",
+        "paginas": "416",
+        "status": "kkkkkk",
         "localizacao": "Estante A1, Prateleira 2"
     },
     {
@@ -15,9 +15,9 @@
         "titulo": "Dom Casmurro",
         "autor": "Machado de Assis",
         "genero": "Romance",
-        "ano_publicacao": 1899,
+        "ano_publicacao": "2200",
         "editora": "Penguin Companhia",
-        "paginas": 256,
+        "paginas": "100",
         "status": "disponivel",
         "localizacao": "Estante B2, Prateleira 1"
     },

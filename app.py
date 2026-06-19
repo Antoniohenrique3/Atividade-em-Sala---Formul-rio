@@ -97,5 +97,31 @@ def cria_livro():
     else:
         return render_template('criar_livro.html')
 
+@app.route('/biblioteca/alterar', methods=['GET', 'POST'])
+def altera_livro():
+    print(request.args.get('isbn'))
+    if request.method == 'POST':
+        alterado_livro = {
+            "isbn" : request.form.get("isbn"),
+            "titulo" : request.form.get("titulo"),
+            "autor"  : request.form.get("autor"),
+            "genero" : request.form.get("genero"),
+            "ano_publicacao" : request.form.get("ano_publicacao"),
+            "editora" : request.form.get("editora"),
+            "paginas" : request.form.get("paginas"),
+            "status" : request.form.get("status"),
+            "localizacao" : request.form.get("localizacao")
+        }
+
+        for l in biblioteca:
+                if l['isbn'] == alterado_livro['isbn']:
+                     l.update(alterado_livro)
+                     dados.salvar_no_arquivo(biblioteca)
+        return redirect(url_for('interface_web'))
+    else:
+        for l in biblioteca:
+            if l['isbn'] == request.args.get('isbn'):
+                return render_template('alterar_livro.html', livro = l)
+
 if __name__ == "__main__":
     app.run(debug=True)

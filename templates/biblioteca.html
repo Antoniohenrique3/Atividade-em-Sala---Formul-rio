@@ -19,7 +19,7 @@
         <tbody>
             {% for livro in meuhtml %}
             <tr>
-                <td>{{livro.isbn}}</td>
+                <td><a href="{{ url_for('altera_livro', isbn=livro.isbn)}}">{{livro.isbn}}</a></td>
                 <td>{{livro['titulo']}}</td>
                 <td>{{livro.autor}}</td>
                 <td>{{livro['genero']}}</td>
